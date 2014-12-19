@@ -1,0 +1,64 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Jer's Light Controller</title>
+<link href='http://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+<link rel='stylesheet' href='spectrum.css' />
+<link rel="stylesheet" href="jquery-ui.css">
+<link rel='stylesheet' href='style.css' />
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script src='spectrum.js'></script>
+<script src='functions.js'></script>
+</head>
+<body>
+<h1 class="title">LED Controller</h1>
+
+<div id="tabs">
+	<ul>
+	<li><a href="#tabs-1">Solid Colors</a></li>
+	<li><a href="#tabs-2">Rainbow Cycle</a></li>
+	<li><a href="#tabs-3">Pixel by Pixel</a></li>
+	<li><a href="#tabs-4">nothing</a></li>
+	</ul>
+	<div id="tabs-1">
+		<p>This function will just set a solid color and leave it there.</p>
+		<input type='text' id="solidColorPalette" />
+	</div>
+	<div id="tabs-2">
+		<p>This function will cycle through the rainbow for the amount of cycles you choose here. You will have to interrupt it twice by hitting lights out, waiting 5 seconds and then lights off again.</p>
+		<div id="rainbowcycle-slider"></div>
+		<label>Number of cycles:</label> <input type="text" id="rainbowCycleWait" class="waitInput" />
+		<br />
+		<a href="javascript:;" onclick="rainbowCycle();" class="bigbutton">Start Cycle</a>
+
+	</div>
+	<div id="tabs-3">
+		
+		
+		<div class="speedSlider">
+		<div id="onepixel-slider"></div>
+		<br />
+		<br />
+			<label for="onePixelWait">Speed:</label> <input type="text" id="onePixelWait" class="waitInput" />
+		</div>
+		
+		<input type='text' id="onePixelPalette" />
+		<p></p>
+		<p>This function slowly lights one LED at a time to the color chosen, then stays lit at that color.</p>
+		
+		<br />
+		Current Color: R<input type="text" id="onePixelColorBoxRed" /> G<input type="text" id="onePixelColorBoxGreen" /> B<input type="text" id="onePixelColorBoxBlue" />
+		<br />
+		<a href="javascript:;" onclick="onePixel();" class="bigbutton">Hit the Lights</a>
+		</div>
+	<div id="tabs-4">
+		<p>nothing yet</p>
+	</div>
+</div>
+<div class="clear"></div>
+<br />
+<a href="javascript:;" onclick="turnOffAll();" class="bigbutton">Turn off all lights</a>
+<br />
+</body>
+</html>

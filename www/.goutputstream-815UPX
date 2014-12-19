@@ -1,0 +1,161 @@
+<html>
+<head>
+ <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+ <style>
+#red, #green, #blue {
+float: left;
+clear: left;
+width: 300px;
+margin: 15px;
+}
+#swatch {
+width: 120px;
+height: 100px;
+margin-top: 18px;
+margin-left: 350px;
+background-image: none;
+}
+#red .ui-slider-range { background: #ef2929; }
+#red .ui-slider-handle { border-color: #ef2929; }
+#green .ui-slider-range { background: #8ae234; }
+#green .ui-slider-handle { border-color: #8ae234; }
+#blue .ui-slider-range { background: #729fcf; }
+#blue .ui-slider-handle { border-color: #729fcf; }
+</style>
+
+<script type="text/javascript">
+
+function changeProgram(programChoose) {
+        server="/arduino/light/" + programChoose;
+        sendCommand = new XMLHttpRequest();
+        sendCommand.open("GET", server, true);
+        sendCommand.send(null);
+}
+//function chooseColor(colorChoose) {
+        //server="/arduino/light/8/" + colorChoose;
+        //alert(server);
+        //sendCommand = new XMLHttpRequest();
+        //sendCommand.open("GET", server, true);
+        //sendCommand.send(null);
+ //var serverResponse = sendCommand.responseText;
+ //alert(serverResponse); // Shows "15"
+//}
+function specificColor(r,g,b) {
+		rgb = r + '/' + g + '/' + b;
+        server="/arduino/light/6/" + rgb;
+       // alert(server);
+        sendCommand = new XMLHttpRequest();
+        sendCommand.open("GET", server, true);
+        sendCommand.send(null);
+		//var serverResponse = sendCommand.responseText;
+		//alert(serverResponse); // Shows "15"
+}
+</script>
+<script>
+function hexFromRGB(r, g, b) {
+	var hex = [
+	r.toString( 16 ),
+	g.toString( 16 ),
+	b.toString( 16 )
+	];
+	$.each( hex, function( nr, val ) {
+	if ( val.length === 1 ) {
+	hex[ nr ] = "0" + val;
+	}
+	});
+	return hex.join( "" ).toUpperCase();
+}
+function refreshSwatch() {
+	var red = $( "#red" ).slider( "value" ),
+	green = $( "#green" ).slider( "value" ),
+	blue = $( "#blue" ).slider( "value" ),
+	hex = hexFromRGB( red, green, blue );
+	$( "#swatch" ).css( "background-color", "#" + hex );
+}
+function applyColor() {
+	var red = $( "#red" ).slider( "value" );
+	var green = $( "#green" ).slider( "value" );
+	var blue = $( "#blue" ).slider( "value" );
+	specificColor( red, green, blue );
+}
+
+
+$(function() {
+	$( "#red, #green, #blue" ).slider({
+	orientation: "horizontal",
+	range: "min",
+	max: 255,
+	value: 127,
+	slide: refreshSwatch,
+	change: refreshSwatch
+	});
+	$( "#red" ).slider( "value", 255 );
+	$( "#green" ).slider( "value", 140 );
+	$( "#blue" ).slider( "value", 60 );
+});
+</script>
+<style>
+	.blocksample {
+		display: inline-block;
+		width: 60px;
+		height: 60px;
+		margin: 20px;
+		}
+	.red {
+		background-color: rgb(255, 0, 0);
+		}
+	.blue {
+		background-color: rgb(0, 0, 255);
+		}
+	.green {
+		background-color: rgb(0, 255, 0);
+		}
+	#colorActivate {
+		background-color: #e1e1e1;
+		border: 2px solid #999;
+		clear: both;
+		display: block;
+		margin: 20px;
+		padding: 20px;
+		text-align: center;
+		width: 200px;
+		}
+		
+	#colorActivate a:hover {
+		background-color: #cccccc;
+}
+
+</style>
+</head>
+<body class="ui-widget-content" style="border:0;">
+<p class="ui-state-default ui-corner-all ui-helper-clearfix" style="padding:4px;">
+<span class="ui-icon ui-icon-pencil" style="float:left; margin:-2px 5px 0 0;"></span>
+LED Controller
+</p>
+<div id="red"></div>
+<div id="green"></div>
+<div id="blue"></div>
+<div id="swatch" class="ui-widget-content ui-corner-all"></div>
+<a href="javascript:;" onclick="applyColor();" id="colorActivate">activate</a>
+
+
+	
+<!--
+<h1 class="heading">Specific Color</h1>
+<a href="javascript:;" onclick="specificColor(255,0,0);" class="blocksample red"></a>
+<a href="javascript:;" onclick="specificColor(0,0,255);" class="blocksample blue"></a>
+<a href="javascript:;" onclick="specificColor(0,0,255);" class="blocksample green"></a>
+
+
+<a href="javascript:;" onclick='changeProgram(4)'>Activate rainbow</a>
+<a href="javascript:;" onclick="changeProgram(0)">All Lights Off</a>
+
+<br />
+<a href="javascript:;" onclick='chooseColor("255/255/255")'>All Lights Off</a>
+-->
+
+</body>
+</html>

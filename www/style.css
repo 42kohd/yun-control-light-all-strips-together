@@ -1,0 +1,92 @@
+/*
+ * palette
+ * 
+ * medium #2E4172
+ * one darker #162955
+ * darkest #061539
+ * 
+ * one lighter #4F628E
+ * lightest #7887AB
+ * 
+*/
+
+
+body, .ui-widget {
+	font-family: 'Orbitron', sans-serif;
+	background-color: #061539;
+	font-size: 100%;
+	padding: 0px;
+	margin: 0px;
+	color: #fff;
+	text-align: center;
+}
+.ui-widget-content, .ui-tabs .ui-tabs-panel {
+	background-color: #162955;
+}
+.ui-widget-content a {
+    color: #eee;
+}
+.ui-slider {
+	background-color: #162955;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.ui-widget-content {
+    color: #eee;
+ }
+.ui-widget input {
+    color: #061539;}
+
+
+
+.bigbutton {
+	font-size: 2em;
+	background-color: #061539;
+	padding: 10px;
+	text-decoration: none;
+	color: #eee;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	width: 400px;
+	display: block;
+	border: 2px solid #999;
+}
+.clear {
+	clear: both;
+	}
+
+.title {
+	background-color: #162955;
+	color: #eee;
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin-top: 0px;
+	}
+	
+#tabs {
+	text-align: center;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+.waitInput {
+	width: 3em;
+	font-size: 1.4em;
+}
+.speedSlider {
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	width: 90%;
+}
+label {
+	font-size: 1.4em;
+	color: #fff;
+}
