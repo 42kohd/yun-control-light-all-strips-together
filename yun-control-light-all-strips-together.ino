@@ -68,6 +68,11 @@ int waitT = 0;
 unsigned long currentMillis = millis();
 long previousMillis = 0; // for wait times
 
+
+int bright = 1; //select 1 thru 10
+int brightRaw = 1; //select 1 thru 10
+
+
 // Listen on default port 5555, the webserver on the Yun
 // will forward there all the HTTP requests for us.
 YunServer server;
@@ -104,7 +109,7 @@ void loop() {
           allColor(strip.Color(0, 0, 0)); //off
           break;
         case 1:
-          //softBlink(strip.Color(redVal, greenVal, blueVal), 255, 50); // blue
+          allColor((unsigned long)random(0x01000000)); // random color
           break;
         case 2:
           // blink in pixels one at a time
@@ -133,7 +138,7 @@ void loop() {
           //          client.println(wait);
 
           c = strip.Color(redVal, greenVal, blueVal);
-          neoPixelToChange = 0;
+          //neoPixelToChange = 0;
           while (neoPixelToChange <= NUMPIXELS) {
 
             // this call allows us to check if there is a new command, thereby interrupting the current loop
@@ -152,7 +157,45 @@ void loop() {
           }
           break;
         case 3:
-         // softBlink(strip.Color(0, 0, 255), defaultBrightness, 50); // blue
+        
+
+          brightRaw = client.parseInt();
+          bright = constrain(brightRaw, 1, 10);
+          
+           // fills with random       
+          
+          totalCycles = 5000;
+          currentCycles = 0;
+          while ( totalCycles > currentCycles ) {
+          
+            YunClient client = server.accept();
+            if (client) {
+              break;
+              client.stop();
+            }
+            
+            uint32_t wait;
+            
+            if ( waitTime > 0 ) {
+              wait = waitTime;
+            } else {
+              // just to have a sane wait time if nothing is specified
+              wait = 50;
+            }
+            
+            currentMillis = millis();
+            if (currentMillis - previousMillis > wait) {
+              previousMillis = currentMillis;
+              int randr = random(0,(25*bright));
+              int randg = random(0,(25*bright));
+              int randb = random(0,(25*bright));
+              int randi = random(1,strip.numPixels());
+              int randii = random(1,strip.numPixels());
+              strip.setPixelColor(constrain(randi, 0, 255), constrain(randr, 0, 255), constrain(randg, 0, 255), constrain(randb, 0, 255));
+              strip.show();
+              neoPixelToChange++;
+            }
+          }
           break;
         case 4:
           //rainbow
