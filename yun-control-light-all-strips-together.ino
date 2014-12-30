@@ -16,8 +16,8 @@ Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMPIXELS, PIXELS_PIN, NEO_GRB + NEO
 
 //int delayval = 50; // delay for half a second
 //int ledState = LOW; // the current state of the output pin
-//int neoPixelToChange = 0; //track which neoPixel to change
-//int neoPixel_j = 0; //stores values for program cycles
+int neoPixelToChange = 0; //track which neoPixel to change
+int neoPixel_j = 0; //stores values for program cycles
 //int defaultBrightness = 255;
 //long delayMillis = 0; // will store the last time the
 
@@ -117,7 +117,7 @@ void loop() {
           allColor(strip.Color(0, 0, 0)); //off
           break;
         case 1:
-          softBlink(strip.Color(redVal, greenVal, blueVal), 255, 50); // blue
+          //softBlink(strip.Color(redVal, greenVal, blueVal), 255, 50); // blue
           break;
         case 2:
           // blink in pixels one at a time
@@ -163,7 +163,7 @@ void loop() {
           }
           break;
         case 3:
-          softBlink(strip.Color(0, 0, 255), defaultBrightness, 50); // blue
+         // softBlink(strip.Color(0, 0, 255), defaultBrightness, 50); // blue
           break;
         case 4:
           //rainbow
