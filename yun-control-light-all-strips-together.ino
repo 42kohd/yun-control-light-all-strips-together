@@ -14,17 +14,8 @@
 // example for more information on possible values.
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMPIXELS, PIXELS_PIN, NEO_GRB + NEO_KHZ800);
 
-//int delayval = 50; // delay for half a second
-//int ledState = LOW; // the current state of the output pin
 int neoPixelToChange = 0; //track which neoPixel to change
 int neoPixel_j = 0; //stores values for program cycles
-//int defaultBrightness = 255;
-//long delayMillis = 0; // will store the last time the
-
-
-
-long previousMillis = 0; // for wait times
-
 
 int currentLightScheme = 0;
 
@@ -58,14 +49,11 @@ int greenEndVal = 0;
 int blueEndRaw = 0;
 int blueEndVal = 0;
 
-
 int redDif = 0;
 int greenDif = 0;
 int blueDif = 0;
 
-
 int prevCommand = 0;
-
 
 int R = 0;
 int G = 0;
@@ -77,9 +65,8 @@ int Gset = 125;
 int Bset = 125;
 int waitT = 0;
 
-
-
 unsigned long currentMillis = millis();
+long previousMillis = 0; // for wait times
 
 // Listen on default port 5555, the webserver on the Yun
 // will forward there all the HTTP requests for us.
@@ -132,13 +119,13 @@ void loop() {
 
           client.stop();
 
-
           uint32_t c;
           uint32_t wait;
 
           if ( waitTime > 0 ) {
             wait = waitTime;
           } else {
+            // just to have a sane wait time if nothing is specified
             wait = 50;
           }
 
@@ -148,6 +135,8 @@ void loop() {
           c = strip.Color(redVal, greenVal, blueVal);
           neoPixelToChange = 0;
           while (neoPixelToChange <= NUMPIXELS) {
+
+            // this call allows us to check if there is a new command, thereby interrupting the current loop
             YunClient client = server.accept();
             if (client) {
               break;
