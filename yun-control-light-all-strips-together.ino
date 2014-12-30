@@ -351,6 +351,17 @@ void loop() {
 
 }
 
+// Fill all the dots with one color
+void allColor(uint32_t c) {
+for(uint16_t i=0; i<strip.numPixels(); i++) {
+strip.setPixelColor(i, c);
+strip.show();
+}
+} // note for a random color, use:
+// allColor((unsigned long)random(0x01000000)); // random color
+
+
+
 // Input a value 0 to 255 to get a color value.
 // The colours are a transition r - g - b - back to r.
 uint32_t Wheel(byte WheelPos) {
