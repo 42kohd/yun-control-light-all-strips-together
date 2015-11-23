@@ -154,7 +154,7 @@ void loop() {
           }
           break;
         case 3:
-        
+        // randomLight in web frontend
 
           brightRaw = client.parseInt();
           bright = constrain(brightRaw, 1, 10);

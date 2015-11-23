@@ -28,7 +28,8 @@ function onePixel() {
 }
 // server command 3
 function randomLight() {
-	server="/arduino/light/3";
+	var randomLightBrightness = $("#randomLightBrightness").val();
+	server="/arduino/light/3/" + randomLightBrightness;
 	sendCommandtoServer(server);
 }
 // server command 4
@@ -47,7 +48,7 @@ function specificColor(r,g,b) {
 // fades up and down
 function fadeUpDown() {
 	server="/arduino/light/9";
-	sendCommandtoServer(server);
+	sendCommandtoServer(server); 
 }
 
 function applyColor() {
@@ -120,4 +121,19 @@ $( "#rainbowcycle-slider" ).slider({
 	}
 });
 $( "#rainbowCycleWait" ).val( $( "#rainbowcycle-slider" ).slider( "value" ) );
+
+
+
+$( "#randomlight-slider" ).slider({
+	range: "min",
+	min: 0,
+	max: 10,
+	value: 5,
+	slide: function( event, ui ) {
+		$( "#randomLightBrightness" ).val( ui.value );
+	}
+});
+$( "#randomLightBrightness" ).val( $( "#randomlight-slider" ).slider( "value" ) );
+
+
 });
