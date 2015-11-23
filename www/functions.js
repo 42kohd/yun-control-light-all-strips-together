@@ -10,15 +10,12 @@ function turnOffAll() {
 	window.setTimeout( sendCommandtoServer(server), 500 );
 }
 
-// to implement server command 1 - gives random colour
+// server command 1
 function randomColour() {
 	server="/arduino/light/1";
 	sendCommandtoServer(server);
 	window.setTimeout( sendCommandtoServer(server), 500 );
 }
-
-
-
 // server command 2
 function onePixel() {
 	var red = $("#onePixelColorBoxRed").val();
@@ -46,6 +43,13 @@ function specificColor(r,g,b) {
 	server="/arduino/light/6/" + rgb;
 	sendCommandtoServer(server);
 }
+// server command 9
+// fades up and down
+function fadeUpDown() {
+	server="/arduino/light/9";
+	sendCommandtoServer(server);
+}
+
 function applyColor() {
 	var red = $( "#red" ).slider( "value" );
 	var green = $( "#green" ).slider( "value" );

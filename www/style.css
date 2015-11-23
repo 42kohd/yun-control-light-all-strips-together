@@ -9,8 +9,6 @@
  * lightest #7887AB
  * 
 */
-
-
 body, .ui-widget {
 	font-family: 'Orbitron', sans-serif;
 	background-color: #061539;
@@ -24,7 +22,7 @@ body, .ui-widget {
 	background-color: #162955;
 }
 .ui-widget-content a {
-    color: #eee;
+	color: #eee;
 }
 .ui-slider {
 	background-color: #162955;
@@ -32,13 +30,11 @@ body, .ui-widget {
 	margin-bottom: 10px;
 }
 .ui-widget-content {
-    color: #eee;
- }
+	color: #eee;
+}
 .ui-widget input {
-    color: #061539;}
-
-
-
+	color: #061539;
+}
 .bigbutton {
 	font-size: 2em;
 	background-color: #061539;
@@ -56,8 +52,7 @@ body, .ui-widget {
 }
 .clear {
 	clear: both;
-	}
-
+}
 .title {
 	background-color: #162955;
 	color: #eee;
@@ -65,16 +60,13 @@ body, .ui-widget {
 	padding-top: 20px;
 	padding-bottom: 20px;
 	margin-top: 0px;
-	}
-	
+}
 #tabs {
 	text-align: center;
 	width: 90%;
 	margin-left: auto;
 	margin-right: auto;
 }
-
-
 .waitInput {
 	width: 3em;
 	font-size: 1.4em;

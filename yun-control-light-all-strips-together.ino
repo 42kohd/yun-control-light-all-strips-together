@@ -134,9 +134,6 @@ void loop() {
             wait = 50;
           }
 
-          //          client.print("waitTime: " );
-          //          client.println(wait);
-
           c = strip.Color(redVal, greenVal, blueVal);
           //neoPixelToChange = 0;
           while (neoPixelToChange <= NUMPIXELS) {
@@ -234,7 +231,6 @@ void loop() {
           }
           break;
         case 5:
-         // rainbowCycle(10);
           break;
         case 6:
           redRaw = client.parseInt();
@@ -306,9 +302,13 @@ void loop() {
           break;
 
         case 9:
+        // fades in and out
+
+        //right now only does red - implement any colour, idea is to be able to pick 2 and fade between them
+        
           uint16_t r, g, b;
 
-          wait = 100;
+          wait = 10;
           totalCycles = 500;
           currentCycles = 0;
 
@@ -356,7 +356,6 @@ void loop() {
                 redNow = redStartVal + r;
                 allColor(strip.Color(constrain(redNow, 0, 255), constrain(greenNow, 0, 255), constrain(blueNow, 0, 255)));
                 strip.show();
-
               }
 
 
