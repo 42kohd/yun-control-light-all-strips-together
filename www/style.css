@@ -84,11 +84,15 @@ label {
 }
 
 #sendCommandOutput {
-	width: 80%;
-	border: 2px solid #765942;
-	border-radius: 10px;
-	height: 160px;
-	margin-bottom: 50px;
-	padding: 10px;
-	overflow: scroll;
+	width: 250px;
+	border: 2px solid #ccc;
+	border-radius: 2px;
+	height: 100%;
+	padding: 2px;
+	overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+	color: #fff;
+	position: fixed;
+    left: 0;
+    z-index: 1000;
 )

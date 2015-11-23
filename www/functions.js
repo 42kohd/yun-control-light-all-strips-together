@@ -1,11 +1,6 @@
 function sendCommandtoServer(cmd) {
-	//sendCommand = new XMLHttpRequest();
-	//sendCommand.open("GET", cmd, true);
-	//sendCommand.send(null);
 	$.get( cmd, function( data ) {
-  //alert( "Data Loaded: " + data );
-		$("#sendCommandOutput").append("new command\n" + data + "\n");
-		//$("#sendCommandOutput").append(data + "<br />");
+		$("#sendCommandOutput").append("\n----new command----\n" + data);
 	});
 	$('#sendCommandOutput').scrollTop($('#sendCommandOutput')[0].scrollHeight);
 }
@@ -15,7 +10,6 @@ function turnOffAll() {
 	sendCommandtoServer(server);
 	window.setTimeout( sendCommandtoServer(server), 5 );
 }
-
 // server command 1
 function randomColour() {
 	server="/arduino/light/1";
@@ -126,9 +120,6 @@ $( "#rainbowcycle-slider" ).slider({
 	}
 });
 $( "#rainbowCycleWait" ).val( $( "#rainbowcycle-slider" ).slider( "value" ) );
-
-
-
 $( "#randomlight-slider" ).slider({
 	range: "min",
 	min: 0,
@@ -139,6 +130,4 @@ $( "#randomlight-slider" ).slider({
 	}
 });
 $( "#randomLightBrightness" ).val( $( "#randomlight-slider" ).slider( "value" ) );
-
-
 });
