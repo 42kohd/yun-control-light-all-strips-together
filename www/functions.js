@@ -17,12 +17,25 @@
 		sendCommand.open("GET", server, true);
 		sendCommand.send(null);
 	}
-	
-	function turnOffAll() {
-		server="/arduino/light/0";
+	function randomLight() {
+		server="/arduino/light/3";
 		sendCommand = new XMLHttpRequest();
 		sendCommand.open("GET", server, true);
 		sendCommand.send(null);
+	}
+	function sendCommand(cmd) {
+		sendCommand = new XMLHttpRequest();
+		sendCommand.open("GET", cmd, true);
+		sendCommand.send(null);
+		
+		}
+	function turnOffAll() {
+		server="/arduino/light/0";
+		sendCommand(server);
+		//sendCommand = new XMLHttpRequest();
+		//sendCommand.open("GET", server, true);
+		//sendCommand.send(null);
+		window.setTimeout( sendCommand(server), 5000 ); // 5 seconds
 	}
 	
 	function rainbowCycle() {
