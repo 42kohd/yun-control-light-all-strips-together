@@ -106,9 +106,11 @@ void loop() {
 
       switch (programMode) {
         case 0:
+          client.print("all off");
           allColor(strip.Color(0, 0, 0)); //off
           break;
         case 1:
+          client.print("random color");
           allColor((unsigned long)random(0x01000000)); // random color
           break;
         case 2:
@@ -196,8 +198,6 @@ void loop() {
           break;
         case 4:
           //rainbow
-
-
           waitTime = client.parseInt();
 
           if ( waitTime > 0 ) {

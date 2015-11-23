@@ -1,20 +1,24 @@
 function sendCommandtoServer(cmd) {
-	sendCommand = new XMLHttpRequest();
-	sendCommand.open("GET", cmd, true);
-	sendCommand.send(null);
+	//sendCommand = new XMLHttpRequest();
+	//sendCommand.open("GET", cmd, true);
+	//sendCommand.send(null);
+	$.get( cmd, function( data ) {
+  //alert( "Data Loaded: " + data );
+	$("#sendCommandOutput").append("<strong>new command</strong><br />");
+	$("#sendCommandOutput").append(data + "<br />");
+	});
 }
 // server command 0
 function turnOffAll() {
 	server="/arduino/light/0";
 	sendCommandtoServer(server);
-	window.setTimeout( sendCommandtoServer(server), 500 );
+	window.setTimeout( sendCommandtoServer(server), 50 );
 }
 
 // server command 1
 function randomColour() {
 	server="/arduino/light/1";
 	sendCommandtoServer(server);
-	window.setTimeout( sendCommandtoServer(server), 500 );
 }
 // server command 2
 function onePixel() {
