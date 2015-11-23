@@ -385,10 +385,10 @@ void loop() {
 
 // Fill all the dots with one color
 void allColor(uint32_t c) {
-for(uint16_t i=0; i<strip.numPixels(); i++) {
-strip.setPixelColor(i, c);
-strip.show();
-}
+  for(uint16_t i=0; i<strip.numPixels(); i++) {
+    strip.setPixelColor(i, c);
+    strip.show();
+  }
 } // note for a random color, use:
 // allColor((unsigned long)random(0x01000000)); // random color
 
