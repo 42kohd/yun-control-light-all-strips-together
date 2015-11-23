@@ -4,9 +4,10 @@ function sendCommandtoServer(cmd) {
 	//sendCommand.send(null);
 	$.get( cmd, function( data ) {
   //alert( "Data Loaded: " + data );
-		$("#sendCommandOutput").append("<strong>new command</strong><br />");
-		$("#sendCommandOutput").append(data + "<br />");
+		$("#sendCommandOutput").append("new command\n" + data + "\n");
+		//$("#sendCommandOutput").append(data + "<br />");
 	});
+	$('#sendCommandOutput').scrollTop($('#sendCommandOutput')[0].scrollHeight);
 }
 // server command 0
 function turnOffAll() {
