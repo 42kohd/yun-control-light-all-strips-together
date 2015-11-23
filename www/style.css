@@ -36,9 +36,9 @@ body, .ui-widget {
 	color: #061539;
 }
 .bigbutton {
-	font-size: 2em;
+	font-size: 1.4em;
 	background-color: #061539;
-	padding: 10px;
+	padding: 16px;
 	text-decoration: none;
 	color: #eee;
 	text-align: center;
@@ -46,7 +46,7 @@ body, .ui-widget {
 	margin-right: auto;
 	margin-top: 30px;
 	margin-bottom: 30px;
-	width: 400px;
+	width: 40%;
 	display: block;
 	border: 2px solid #999;
 }
@@ -84,9 +84,12 @@ label {
 }
 
 #sendCommandOutput {
-	width: 100%;
+	width: 80%;
 	border: 2px solid #765942;
 	border-radius: 10px;
 	height: 60px;
 	margin-bottom: 50px;
+	padding: 10px;
+	font-size: 2em;
+	overflow: scroll;
 )
